@@ -23,13 +23,9 @@ void bellmanFordAlgo(int src, bellmanFord edgeList[], int vertices, int edges) {
             }
       }
     }
-    
 
     for(int i=0;i<vertices;i++)
-        if(i!=src){
-            if(dist[i]!=INF) cout<<dist[i]<<" ";
-            else cout<<"1000000000 ";
-        }
+       cout<<dist[i]<<" ";
 }
 
 int main()
