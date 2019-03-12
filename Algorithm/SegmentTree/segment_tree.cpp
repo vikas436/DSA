@@ -3,12 +3,6 @@
 #define MAX 1000000
 using namespace std;
 
-int min(int a,int b){
-    if(a<b)
-    return a;
-    return b;
-}
-
 void build(vector<int> arr, int l, int r, int pos, vector<int>&vec) {
   if(l==r) {
     vec[pos] = arr[l];
@@ -18,7 +12,22 @@ void build(vector<int> arr, int l, int r, int pos, vector<int>&vec) {
     build(arr, l, m, 2*pos+1,vec);
     build(arr, m + 1, r, 2 * pos + 2, vec);
     vec[pos]=min(vec[pos*2+1],vec[pos*2+2]);
-    printf("%d %d %d %d\n", l,m,m+1,r);
+    // printf("%d %d %d %d\n", l,m,m+1,r); partition segment array
+  }
+}
+
+void update(vector<int>&arr, int l, int r, int pos, vector<int>&vec, int val, int ind) {
+  if(l==r) {
+    vec[pos] = val;
+    arr[ind] = val;
+  }
+  else if(l < r) {
+    int m = l + (r - l) / 2;
+    if(l <= ind && ind <= m)
+        update(arr, l, m, 2*pos+1,vec, val, ind);
+    else
+        update(arr, m + 1, r, 2 * pos + 2, vec, val, ind);
+    vec[pos]=min(vec[pos*2+1],vec[pos*2+2]);
   }
 }
 
@@ -68,5 +77,22 @@ int main() {
       a = query(vec, 0, arr_size, 0, a, b);
       printf("Min is: %d\n", a);
   }
+  // update function
+  int U;
+  cin>>U;
+  for(int i=0;i<U;i++) {
+      int ind,val;
+      cin>>ind>>val;
+      update(arr, 0, arr_size - 1, 0, vec, val, ind);
+      cout << "updated array: \n";
+      printArray(arr, arr.size());
+      // search range 
+      int a,b;
+      cin>>a>>b;
+      printf("range between %d %d ", a, b);
+      a = query(vec, 0, arr_size, 0, a, b);
+      printf("Min is: %d\n", a);
+  }
+  
   return 0;
 }
