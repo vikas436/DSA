@@ -35,7 +35,7 @@ int query(vector<int> vec, int l, int r, int pos, int p, int q) {
     if(p <= l && q >= r) {
         return vec[pos];
     } else if (l>q || p>r) {
-        return 100000;
+        return MAX;
     } else {
     int m = l + (r - l) / 2;
     int a = query(vec, l, m, 2 * pos + 1, p, q);
