@@ -1,4 +1,4 @@
-/* C program for Segment Tree */
+/* C++ program for Segment Tree */
 #include <bits/stdc++.h>
 #define MAX 1000000
 using namespace std;
