@@ -32,6 +32,22 @@ void addTrieNode(string ch, TrieNode *root) {
   root->isEnd = true;
 }
 
+void search(string st, TrieNode *root1) {
+    bool flagEnd = true;
+    FOR(i, 0, st.size()) {
+                int j= charToInt(st[i]);
+                if(root1->trieNode[j]!=NULL) {
+                    root1 = root1->trieNode[j];
+                } else {
+                    flagEnd = false;
+                    break;
+                }
+        }
+    if(flagEnd && root1->isEnd)
+        cout <<" => FOUND"<< endl;
+    else 
+        cout << " => NOT FOUND" << endl;
+}
 
 int main() {
     int n;
@@ -51,17 +67,8 @@ int main() {
     cout<<"Enter string "<<k+1<<endl;
         cin>>st;
         TrieNode *root1 = root;
-        FOR(i, 0, st.size()) {
-                int j= charToInt(st[i]);
-                if(root1->trieNode[j]!=NULL) {
-                    root1 = root1->trieNode[j];
-                }
-        }
-        if(root1->isEnd==true)
-          cout <<" => FOUND"<< endl;
-        else 
-          cout << " => NOT FOUND" << endl;
+        search(st, root1);
     }
-    
+
     return 0;
 }
