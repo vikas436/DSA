@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void fun(vector<int>&vec, int n, int k) {
+    if(n==0) {
+        for(int i=0;i<k;i++) cout<<vec[i];
+        cout<<endl;
+    } else {
+        for(int i=0;i<k;i++) {
+            vec[n-1]=i;
+            fun(vec,n-1,k);
+        }
+    }
+}
+
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>arr(n);
+    fun(arr,n,k);    
+    return 0;
+}
