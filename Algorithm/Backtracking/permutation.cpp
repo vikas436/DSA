@@ -2,7 +2,7 @@
 using namespace std;
 
 void permute(string &str, int l, int r) {
-    if(l>r) {
+    if(l == r) {
         cout<<str<<endl;
         return;
     } else {
