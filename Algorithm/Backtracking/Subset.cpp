@@ -1,3 +1,5 @@
+// https://www.interviewbit.com/problems/subset/
+
 void getSize(vector<int>&A, vector<int>&vec, vector<vector<int> > &res ,int l, int k) {
     if(k==0) {
         res.push_back(vec);
