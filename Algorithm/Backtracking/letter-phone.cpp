@@ -1,5 +1,5 @@
 // https://www.interviewbit.com/problems/letter-phone/
-
+// for better solution refer above link... =>:)
 map<char,string>mp;
 
 void getLetter(vector<string>&vec, string A, int l, int r, string str) {
