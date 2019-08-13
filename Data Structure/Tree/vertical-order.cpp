@@ -1,3 +1,25 @@
+/*
+Given a binary tree, return a 2-D array with vertical order traversal of it.
+Go through the example and image for more details.
+
+Example :
+Given binary tree:
+
+      6
+    /   \
+   3     7
+  / \     \
+ 2   5     9
+returns
+
+[
+    [2],
+    [3],
+    [6 5],
+    [7],
+    [9]
+]
+*/
 /** https://www.interviewbit.com/problems/vertical-order-traversal-of-binary-tree/
  *
  * Definition for binary tree
